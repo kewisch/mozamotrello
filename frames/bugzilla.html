@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+    <link rel="stylesheet" href="bugzilla.css">
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+    <template id="bug">
+      <div class="bug">
+        <div class="header">
+          <a class="url" target="_blank">Bug <span class="id"></span></a>
+          <span class="status dash"></span>,
+          <a class="assigned_to" target="_blank"></a>
+          <span class="priority dash"></span>
+          <span class="target_milestone dash"></span>
+        </div>
+        <div class="body">
+          <span class="summary"></span>
+        </div>
+      </div>
+    </template>
+    <div id="loading" class="loading">
+      Loading...
+    </div>
+    <div id="content">
+    </div>
+    <script src="./bugzilla.js"></script>
+  </body>
+</html>

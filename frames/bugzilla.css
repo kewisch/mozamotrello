@@ -1,0 +1,28 @@
+.bug {
+  margin-bottom: 0.5em;
+}
+
+.bug > .body {
+  margin-inline-start: 2em;
+}
+
+.bug > .body > .summary {
+  font-size: 1.1em;
+}
+
+.bug .priority.unprioritized {
+  font-style: italic;
+}
+
+#loading:not(.loading) {
+  display: none;
+}
+
+#loading {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.dash:not(:empty)::before {
+  content: " – ";
+}
