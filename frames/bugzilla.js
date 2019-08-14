@@ -60,7 +60,11 @@ t.render(() => {
         }
 
         clone.querySelector(".summary").textContent = bug.summary;
-        clone.querySelector(".trello_description").textContent = attachment.name || "";
+        if (attachment.name && attachment.name != attachment.url) {
+          clone.querySelector(".trello_description").textContent = attachment.name;
+        } else {
+          clone.querySelector(".trello_description").textContent = "";
+        }
 
         document.querySelector("#content").appendChild(clone);
       }
