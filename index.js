@@ -92,7 +92,7 @@ function formatDate(date) {
  * to Google Calendar. If no known release date exists it will return null.
  *
  * @param {number?} version     The version to create the badge for.
- * @return {Object}             The Trello detail badge.
+ * @return {object}             The Trello detail badge.
  */
 function createDetailBadge(version) {
   let release = releaseDate(version);
@@ -141,9 +141,9 @@ TrelloPowerUp.initialize({
   /**
    * Attachment section that shows bug information including status.
    *
-   * @param {Object} t      Trello object.
-   * @param {Object} opts   Trello options.
-   * @return {Object[]}     Trello attachment sections.
+   * @param {object} t      Trello object.
+   * @param {object} opts   Trello options.
+   * @return {object[]}     Trello attachment sections.
    */
   "attachment-sections": function(t, opts) {
     let claimed = opts.entries.filter(attachment => attachment.url.startsWith(SHOW_BUG_PREFIX));
@@ -167,8 +167,8 @@ TrelloPowerUp.initialize({
    * A list sorter that allows to sort by date, resolving the labels for Firefox
    * versions (i.e. FF70) and quarters (i.e. Q3).
    *
-   * @param {Object} t      Trello object.
-   * @return {Object[]}     Trello sorters.
+   * @param {object} t      Trello object.
+   * @return {object[]}     Trello sorters.
    */
   "list-sorters": function(t) {
     return [{
@@ -207,9 +207,9 @@ TrelloPowerUp.initialize({
   /**
    * An URL formatter that formats bugzilla links to bug numbers.
    *
-   * @param {Object} t      Trello object.
-   * @param {Object} opts   Trello options.
-   * @return {Object}       Trello formatters.
+   * @param {object} t      Trello object.
+   * @param {object} opts   Trello options.
+   * @return {object}       Trello formatters.
    */
   "format-url": function(t, opts) {
     if (opts.url.startsWith(SHOW_BUG_PREFIX)) {
@@ -225,9 +225,9 @@ TrelloPowerUp.initialize({
   /**
    * Card detail badges that show dates for the Firefox milestones set via labels, i.e FF70.
    *
-   * @param {Object} t              Trello object.
-   * @param {Object} opts           Trello options.
-   * @return {Promise<Object[]>}    Trello badges.
+   * @param {object} t              Trello object.
+   * @param {object} opts           Trello options.
+   * @return {Promise<object[]>}    Trello badges.
    */
   "card-detail-badges": function(t, opts) {
     return t.card("labels")
