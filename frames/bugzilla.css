@@ -26,3 +26,11 @@
 .dash:not(:empty)::before {
   content: " – ";
 }
+
+.trello_description {
+  font-weight: bold;
+}
+
+.trello_description:not(:empty)::after {
+  content: ": ";
+}

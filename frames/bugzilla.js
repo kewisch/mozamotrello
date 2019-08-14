@@ -9,14 +9,23 @@ t.render(() => {
     .then((attachments) => {
       document.querySelector("#content").innerHTML = "";
       document.querySelector("#loading").classList.add("loading");
-      let bugs = attachments.map(attachment => attachment.url.substr(45));
-      return fetch("https://bugzilla.mozilla.org/rest/bug?id=" + bugs.join(",")).then(resp => resp.json());
-    }).then((json) => {
+      let attachbugs = {};
+      for (let attachment of attachments) {
+        let id = attachment.url.substr(45);
+        attachbugs[id] = attachment;
+      }
+
+      let bugs = Object.keys(attachbugs);
+      return fetch("https://bugzilla.mozilla.org/rest/bug?id=" + bugs.join(","))
+        .then(resp => resp.json())
+        .then((json) => [attachbugs, json]);
+    }).then(([attachbugs, json]) => {
       document.querySelector("#loading").classList.remove("loading");
 
       for (let bug of json.bugs) {
         let template = document.querySelector("#bug");
         let clone = document.importNode(template.content, true);
+        let attachment = attachbugs[bug.id];
 
         clone.querySelector(".id").textContent = bug.id;
         clone.querySelector(".url").setAttribute("href", SHOW_BUG_PREFIX + bug.id);
@@ -51,6 +60,7 @@ t.render(() => {
         }
 
         clone.querySelector(".summary").textContent = bug.summary;
+        clone.querySelector(".trello_description").textContent = attachment.name || "";
 
         document.querySelector("#content").appendChild(clone);
       }
