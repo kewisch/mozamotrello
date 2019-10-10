@@ -4,7 +4,7 @@
  * Portions Copyright (C) Philipp Kewisch, 2019 */
 
 const SHOW_BUG_PREFIX = "https://bugzilla.mozilla.org/show_bug.cgi?id=";
-const WEEKS_PER_RELEASE = 7;
+const WEEKS_PER_RELEASE = 4;
 
 /**
  * The list of release. Generally you don't need to add an entry here as long as releases are
@@ -13,7 +13,12 @@ const WEEKS_PER_RELEASE = 7;
  */
 const RELEASES = [
   { version: 67, date: "2019-05-21" },
+  { version: 68, date: "2019-07-09" },
   { version: 69, date: "2019-09-03" },
+  { version: 70, date: "2019-10-22" },
+  { version: 71, date: "2019-12-03" },
+  { version: 72, date: "2020-01-07" },
+  { version: 73, date: "2020-02-11" },
 ];
 
 /**
